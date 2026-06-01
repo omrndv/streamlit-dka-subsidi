@@ -3,9 +3,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-import kagglehub
-from kagglehub import KaggleDatasetAdapter
-
 
 st.set_page_config(
     page_title="Prediksi Harga Mobil Bekas",
@@ -16,13 +13,7 @@ st.set_page_config(
 
 @st.cache_data
 def load_data():
-    file_path = "ford.csv"
-
-    df = kagglehub.load_dataset(
-        KaggleDatasetAdapter.PANDAS,
-        "adityadesai13/used-car-dataset-ford-and-mercedes",
-        file_path
-    )
+    df = pd.read_csv("ford.csv")
 
     data = df.copy()
 
